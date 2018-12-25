@@ -15,26 +15,65 @@
 (function (window) {
     //声明一个变量来存游戏控制器的对象
     let that = null;
-   //游戏控制器构造函数
-   function Game(map) {
-       this.food = new Food();
-       this.snake = new Snake();
-       this.map = map;
-       //给that赋值
-       that = this;
-   }
-   //开始-->>
+
+    //游戏控制器构造函数
+    function Game(map) {
+        this.food = new Food();
+        this.snake = new Snake();
+        this.map = map;
+        //给that赋值
+        that = this;
+    }
+
+    //开始-->>
     Game.prototype.start = function () {
         //生成食物-->>
         this.food.render(this.map);
         //生成蛇-->>
         this.snake.render(this.map);
         //蛇动起来(直接调用移动方法)-->>
-       snakeAutoMove();
+        snakeAutoMove();
+
+        bindKey();
     };
 
-   //自动移动的方法,计时器
-    function snakeAutoMove(){
+    /**
+     * 让蛇跟着按键(键盘)移动
+     * 注意:事件是由document触发,this不是指代游戏控制器的对象
+     *      使用全局变量that代替this指代对象
+     */
+    function bindKey() {
+        document.onkeydown = function (e) {
+            // 37 38 39 40 左 上 右 下
+            //根据按键改变蛇的方向
+            console.log(String.fromCharCode(e.keyCode));
+            switch (e.keyCode) {
+                case 37 :
+                    if (that.snake.direction !== 'right') {
+                        that.snake.direction = 'left';
+                    }
+                    break;
+                case 38 :
+                    if (that.snake.direction !== 'bottom') {
+                        that.snake.direction = 'top';
+                    }
+                    break;
+                case 39 :
+                    if (that.snake.direction !== 'left') {
+                        that.snake.direction = 'right';
+                    }
+                    break;
+                case 40 :
+                    if (that.snake.direction !== 'top') {
+                        that.snake.direction = 'bottom';
+                    }
+                    break;
+            }
+        }
+    }
+
+    //自动移动的方法,计时器
+    function snakeAutoMove() {
         setInterval(function () {
             /**
              * 这里的this指向的是window,因为是计时器的函数,是由window.出来的的
@@ -47,7 +86,7 @@
             this.snake.move();
             //盒子显示,坐标渲染
             this.snake.render(this.map);
-        }.bind(that),1000)
+        }.bind(that), 500)
     }
 
     window.Game = Game
