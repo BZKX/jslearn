@@ -42,12 +42,13 @@
 </body>
 </html>
 <script src="Food.js"></script>
+<script src="Snake.js"></script>
+<script src="GameController.js"></script>
 <script>
     //获取地图对象
     var map = document.getElementById('map');
 
-    //调用函数实例化食物
-    var f1 = new Food()
-    f1.render(map);
-
+    //创建游戏控制器对象,开始游戏
+    var game = new Game(map);
+    game.start();
 </script>

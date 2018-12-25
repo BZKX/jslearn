@@ -35,7 +35,7 @@
      */
     Snake.prototype.render = function (map) {
         //遍历蛇的每一节身体,渲染
-        for (var i = 0; i < this.body.length; i++) {
+        for (let i = 0; i < this.body.length; i++) {
             //拿到身体
             var snakeUnit = this.body[i];
             //渲染->创建div添加到map中
@@ -51,4 +51,4 @@
         }
     };
     window.Snake = Snake;
-}(window))
+}(window));

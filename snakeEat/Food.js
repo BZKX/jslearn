@@ -47,7 +47,7 @@
         div1.style.height = this.height + 'px';
         //添加到地图上
         map.appendChild(div1);
-    }
+    };
     /**
      * 因为是局部变量,外部无法调用Food构造函数
      * 所以把写的Food方法添加给window对象
