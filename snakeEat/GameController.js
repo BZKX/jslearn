@@ -74,7 +74,7 @@
 
     //自动移动的方法,计时器
     function snakeAutoMove() {
-        setInterval(function () {
+        var timeId = setInterval(function () {
             /**
              * 这里的this指向的是window,因为是计时器的函数,是由window.出来的的
              * 使用bind()方法让this指向游戏控制器的对象
@@ -84,8 +84,21 @@
              */
             //盒子移动,创建坐标
             this.snake.move();
+            //判断是否出边界
+            var snakeHeadX = this.snake.body[0].x * this.snake.width;
+            var snakeHeadY = this.snake.body[0].y * this.snake.height;
+            //判断
+            if (snakeHeadX < 0 || snakeHeadY < 0 ||
+                snakeHeadX >= this.map.offsetWidth || snakeHeadY >= this.map.offsetHeight) {
+                console.log(this.snake);
+                alert('Game over');
+                clearInterval(timeId);
+                return; //跳出函数,不执行渲染,注意但是蛇的坐标已经被计算出来,只是没有渲染
+            }
+
             //盒子显示,坐标渲染
             this.snake.render(this.map);
+
         }.bind(that), 500)
     }
 
