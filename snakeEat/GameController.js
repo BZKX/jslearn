@@ -29,7 +29,7 @@
         this.food.render(this.map);
         //生成蛇-->>
         this.snake.render(this.map);
-        //蛇动起来-->>
+        //蛇动起来(直接调用移动方法)-->>
        snakeAutomve();
     };
    //自动移动的方法,计时器
