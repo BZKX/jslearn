@@ -30,10 +30,10 @@
         //生成蛇-->>
         this.snake.render(this.map);
         //蛇动起来(直接调用移动方法)-->>
-       snakeAutomve();
+       snakeAutoMove();
     };
    //自动移动的方法,计时器
-    function snakeAutomve(){
+    function snakeAutoMove(){
         setInterval(function () {
             /**
              * 这里的this指向的是window,因为是计时器的函数,是由window.出来的的
