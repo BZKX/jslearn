@@ -57,11 +57,11 @@
         }
     };
 
-    Snake.prototype.move = function(){
-      //从尾部开始移动
-        for (let i = this.body.length-1;i>0;i--){   //身体移动循环
-            this.body[i].x = this.body[i-1].x;
-            this.body[i].y = this.body[i-1].y;
+    Snake.prototype.move = function (food) {
+        //从尾部开始移动
+        for (let i = this.body.length - 1; i > 0; i--) {   //身体移动循环
+            this.body[i].x = this.body[i - 1].x;
+            this.body[i].y = this.body[i - 1].y;
         }
         switch (this.direction) {
             case 'left' :
@@ -77,18 +77,46 @@
                 this.body[0].y++;
                 break;
         }
+        /**
+         * 蛇移动就可能吃到食物,所以在这里进行判断
+         */
+        var snakHeadX = this.body[0].x * this.width;
+        var snakHeadY = this.body[0].y * this.height;
+        var foodX = food.x;
+        var foodY = food.y;
+        //获取蛇尾,一会添加
+        var snakeLastUnit = this.body[this.body.length-1]
+        //判断,是否重合
+        if (snakHeadX === foodX && snakHeadY === foodY) {
+            this.body.push({
+                x: snakeLastUnit.x,
+                y: snakeLastUnit.y,
+                bgColor : getColorForRandom()
+            })
+        }
     };
 
     //删除蛇的方法
-    function remove(){
+    function remove() {
         //让map删除list数组中的div
-        for (let i = 0; i <list.length ; i++) {
+        for (let i = 0; i < list.length; i++) {
             //从map中删除
             map.removeChild(list[i]);
         }
         //把list数组清空
         list.length = 0;
     }
-
+    //随机产生一个十六进制的颜色的函数.
+    function getColorForRandom(){
+        var arr = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'];  //下标0-15
+        var str = "#";
+        //循环产生 6个 0-15的数.
+        for(var i = 0 ; i < 6; i++){
+            var num = Math.floor(Math.random()*16);
+            //根据这个随机数,在arr数组中去取值.
+            str += arr[num];
+        }
+        return str;   //"#985700"
+    }
     window.Snake = Snake;
 }(window));
