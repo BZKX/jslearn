@@ -32,6 +32,7 @@
 
     /**
      * 渲染蛇的方法写在原型中
+     * 蛇移动的方法
      */
     Snake.prototype.render = function (map) {
         //遍历蛇的每一节身体,渲染
@@ -50,5 +51,29 @@
             map.appendChild(div1);
         }
     };
+
+    Snake.prototype.move = function(){
+      //从尾部开始移动
+        for (let i = this.body.length-1;i>0;i--){   //身体移动循环
+            this.body[i].x = this.body[i-1].x;
+            this.body[i].y = this.body[i-1].y;
+        }
+        switch (this.direction) {
+            case 'left' :
+                this.body[0].x--;
+                break;
+            case 'right' :
+                this.body[0].x++;
+                break;
+            case 'top' :
+                this.body[0].y--;
+                break;
+            case 'bottom' :
+                this.body[0].y++;
+                break;
+        }
+
+    };
+
     window.Snake = Snake;
 }(window));
