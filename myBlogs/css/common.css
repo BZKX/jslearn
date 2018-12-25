@@ -1,0 +1,89 @@
+/**
+* @author: LYLG_zkx
+* @Email: 347487522@qq.com
+* @date: 2018/12/25 20:11
+* @IDE: WebStorm 
+*/
+
+body, span, p, a, h1, h2, h3, h4, span,
+img, li, ul, input, strong, del, i, em, ins {
+    margin  : 0;
+    padding : 0;
+}
+
+body{
+    font: 14px/100% '幼圆';
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.clearfix :before,
+.clearfix :after {
+    content : '';
+    display : block;
+}
+
+.clearfix :after {
+    clear : both;
+}
+
+.clearfix {
+    *zoom : 1;
+}
+
+/*topBar*/
+
+.topBar {
+    position         : fixed;
+    top              : 0;
+    left             : 0;
+    width : 100%;
+    min-width        : 700px;
+    height           : 60px;
+    background-color : rgba(255, 255, 255, 0.6);
+    box-shadow:  0 2px 2px #ccc;;
+}
+
+.topBar h1 a{
+    float : left;
+    width : 83px;
+    height : 22px;
+    background : url("../pic/header_logo.png") ;
+    background-size: 100%;
+    margin: 17px 12px;
+}
+
+.topBar .nav {
+    float : right;
+    height : 60px;
+}
+
+.topBar .nav li{
+    float : left;
+    font-size: 18px;
+    line-height: 60px;
+    margin: 0 16px;
+}
+
+.topBar .nav li a {
+    color: #555;
+}
+
+.topBar .nav .tag span{
+    display: block;
+    width : 1px;
+    height : 40px;
+    background-color : black;
+    margin-top: 10px;
+}
+
+.topBar .nav li a:hover{
+    color: #000;
+}

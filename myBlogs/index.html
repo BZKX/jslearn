@@ -1,0 +1,58 @@
+<!--
+ * @author: LYLG_zkx
+ * @Email: 347487522@qq.com
+ * @date: 2018/12/25  20:10 
+ * @Wirte by: WebStorm
+ -->
+<!DOCTYPE html>
+<html lang = "zh_CN">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport"
+          content = "width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv = "X-UA-Compatible" content = "ie=edge">
+    <title>Title</title>
+    <link rel = "stylesheet" href = "css/common.css">
+    <link rel = "stylesheet" href = "css/index.css">
+    <script src = ""></script>
+</head>
+<body>
+<div class="topBar" id="topBar">
+    <h1><a href = "#"></a></h1>
+    <ul class="nav" id="topNav">
+        <li><a href = "">首页</a></li>
+        <li><a href = "">分类</a></li>
+        <li><a href = "">归档</a></li>
+        <li><a href = "">标签</a></li>
+        <li class="tag"><span></span></li>
+        <li><a href = "">关于</a></li>
+        <li class="tag"><span></span></li>
+        <li><a href = "">Found me</a></li>
+    </ul>
+</div>
+<div class="contents" id="contents"></div>
+<div class="img" id="img">
+    <ul>
+        <li><img src = "pic/1.jpg" alt = ""></li>
+        <li><img src = "pic/3.jpg" alt = ""></li>
+        <li><img src = "pic/5.jpg" alt = ""></li>
+        <li><img src = "pic/6.jpg" alt = ""></li>
+        <li><img src = "pic/7.jpg" alt = ""></li>
+    </ul>
+</div>
+</body>
+</html>
+<script>
+    var img = document.getElementById('img');
+    var contents = document.getElementById('contents');
+    window.onresize = function () {
+        if (document.body.clientWidth<=900){
+            img.style.display = 'none';
+            contents.style.width = '100%'
+        } else{
+            img.style.display = 'block';
+            contents.style.width = '50%'
+        }
+
+    }
+</script>

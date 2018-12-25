@@ -1,0 +1,28 @@
+/**
+* @author: LYLG_zkx
+* @Email: 347487522@qq.com
+* @date: 2018/12/25 20:13
+* @IDE: WebStorm 
+*/
+
+.contents{
+    width : 50%;
+    /*min-width: 700px;*/
+    height : 5000px;
+    background : skyblue;
+    float : left;
+    z-index: 10;
+}
+
+.img{
+    width : 50%;
+    float: right;
+    height : 5000px;
+    background : dimgray;
+    overflow: hidden;
+}
+
+.img ul li img{
+    width : 100%;
+}
+
