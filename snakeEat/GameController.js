@@ -32,6 +32,7 @@
         //蛇动起来(直接调用移动方法)-->>
        snakeAutoMove();
     };
+
    //自动移动的方法,计时器
     function snakeAutoMove(){
         setInterval(function () {
@@ -40,9 +41,11 @@
              * 使用bind()方法让this指向游戏控制器的对象
              * 声明一个全局变量that来存储this(游戏控制器对象)
              * 给函数使用bind()方法让指向游戏控制器对象
+             * -->或者直接使用that代替内部的this,that是全局变量,指向游戏控制器的对象
              */
+            //盒子移动,创建坐标
             this.snake.move();
-
+            //盒子显示,坐标渲染
             this.snake.render(this.map);
         }.bind(that),1000)
     }
