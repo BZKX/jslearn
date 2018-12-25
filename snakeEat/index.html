@@ -1,0 +1,53 @@
+<!--
+ * █████▒  █    ██  ▄████▄   ██ ▄█▀       ██████╗ ██╗   ██╗ ██████╗
+ * ▓██    ▒██  ▓██▒▒██▀ ▀█   ██▄█▒        ██╔══██╗██║   ██║██╔════╝
+ * ▒████░ ▓██  ▒██░▒▓█    ▄ ▓███▄░        ██████╔╝██║   ██║██║  ███╗
+ * ░▓█▒  ░▓▓█  ░██░▒▓▓▄ ▄██▒▓██ █▄        ██╔══██╗██║   ██║██║   ██║
+ * ░▒█░   ▒▒█████▓ ▒ ▓███▀ ░▒██▒ █▄       ██████╔╝╚██████╔╝╚██████╔╝
+ *  ▒ ░   ░▒▓▒ ▒ ▒ ░ ░▒ ▒  ░▒ ▒▒ ▓▒       ╚═════╝  ╚═════╝  ╚═════╝
+ * @author: LYLG_zkx
+ * @Email: 347487522@qq.com
+ * @date: 2018/12/25  9:08 
+ * @Wirte by: WebStorm
+ -->
+<!DOCTYPE html>
+<html lang = "zh_CN">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport"
+          content = "width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv = "X-UA-Compatible" content = "ie=edge">
+    <title>Title</title>
+    <link rel = "stylesheet" href = "">
+    <script src = ""></script>
+    <style>
+        *{
+            margin : 0;
+            width : 0;
+        }
+        .map{
+            width : 800px;
+            height : 600px;
+            background-color : #ccc;
+            position : relative;
+            top : 0;
+            left : 0;
+        }
+    </style>
+</head>
+<body>
+<div class="map" id="map"></div>
+
+
+</body>
+</html>
+<script src="Food.js"></script>
+<script>
+    //获取地图对象
+    var map = document.getElementById('map');
+
+    //调用函数实例化食物
+    var f1 = new Food()
+    f1.render(map);
+
+</script>
