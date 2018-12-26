@@ -16,7 +16,7 @@
  * dot:但是要把需要的方法暴露出来,将方法添加给window实现外部调用
  */
 (function (window) {
-    //关于食物
+    //s声明一个list数组,用来保存显示食物的div
     var list = [];
     //食物是一个对象.创建构造函数
     function Food(width,height,bgColor,x,y) {
@@ -33,6 +33,8 @@
      */
 
     Food.prototype.render = function (map) {
+        //渲染之前,删除老食物
+        remove();
         //谁调用render方法,this就是是谁
         //1.随机坐标
         this.x = Math.floor(Math.random() * (map.offsetWidth/this.width))*this.width;
@@ -47,7 +49,17 @@
         div1.style.height = this.height + 'px';
         //添加到地图上
         map.appendChild(div1);
+        //把显示的食物的div存起来
+        list.push(div1);
     };
+    //删除老食物
+    function remove (){
+        for (let i = 0; i < list.length; i++) {
+            map.removeChild(list[i]);
+            //清空list数组
+            list.length = 0;
+        }
+    }
     /**
      * 因为是局部变量,外部无法调用Food构造函数
      * 所以把写的Food方法添加给window对象

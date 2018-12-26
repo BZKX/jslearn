@@ -83,7 +83,7 @@
              * -->或者直接使用that代替内部的this,that是全局变量,指向游戏控制器的对象
              */
             //盒子移动,创建坐标
-            this.snake.move(this.food);
+            this.snake.move(this.food,this.map);
             //判断是否出边界
             var snakeHeadX = this.snake.body[0].x * this.snake.width;
             var snakeHeadY = this.snake.body[0].y * this.snake.height;

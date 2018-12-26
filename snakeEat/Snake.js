@@ -85,14 +85,16 @@
         var foodX = food.x;
         var foodY = food.y;
         //获取蛇尾,一会添加
-        var snakeLastUnit = this.body[this.body.length-1]
-        //判断,是否重合
+        var snakeLastUnit = this.body[this.body.length-1];
+        //判断,是否重合,吃到食物张一节
         if (snakHeadX === foodX && snakHeadY === foodY) {
             this.body.push({
                 x: snakeLastUnit.x,
                 y: snakeLastUnit.y,
                 bgColor : getColorForRandom()
-            })
+            });
+            //产生新的食物
+            food.render(map)
         }
     };
 
@@ -108,15 +110,15 @@
     }
     //随机产生一个十六进制的颜色的函数.
     function getColorForRandom(){
-        var arr = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'];  //下标0-15
-        var str = "#";
+        const arr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'];  //下标0-15
+        let str = "#";
         //循环产生 6个 0-15的数.
-        for(var i = 0 ; i < 6; i++){
-            var num = Math.floor(Math.random()*16);
+        for(let i = 0 ; i < 6; i++){
+            const num = Math.floor(Math.random() * 16);
             //根据这个随机数,在arr数组中去取值.
             str += arr[num];
         }
-        return str;   //"#985700"
+        return str;
     }
     window.Snake = Snake;
 }(window));
